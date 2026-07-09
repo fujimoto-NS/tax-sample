@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>税理士試験 直前チェック サンプル</title>
+<style>
+  body {
+    font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.8;
+    margin: 0;
+    padding: 16px;
+    background: #f4f7fb;
+    color: #222;
+  }
+
+  h1 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: 18px;
+    margin-top: 32px;
+    padding-left: 10px;
+    border-left: 5px solid #2f6fcf;
+  }
+
+  .card {
+    background: #fff;
+    padding: 18px;
+    border-radius: 14px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    margin-bottom: 28px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    font-size: 15px;
+  }
+
+  th, td {
+    border: 1px solid #333;
+    padding: 10px 6px;
+    text-align: center;
+  }
+
+  th {
+    background: #eef3ff;
+  }
+
+  .area {
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .blank {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 72px;
+    min-height: 34px;
+    padding: 2px 8px;
+    border: 2px solid #2f6fcf;
+    border-radius: 8px;
+    background: #eaf2ff;
+    color: #2f6fcf;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    box-sizing: border-box;
+  }
+
+  .blank::before {
+    content: "？";
+  }
+
+  .blank.show {
+    background: #fff3e0;
+    border-color: #e67700;
+    color: #c75000;
+  }
+
+  .blank.show::before {
+    content: attr(data-answer);
+  }
+
+  .guide {
+    position: relative;
+    animation: pulse 1.4s infinite;
+  }
+
+  .guide::after {
+    content: "👆 タップ";
+    position: absolute;
+    left: 50%;
+    bottom: -34px;
+    transform: translateX(-50%);
+    font-size: 13px;
+    color: #fff;
+    background: #2f6fcf;
+    padding: 3px 8px;
+    border-radius: 999px;
+    white-space: nowrap;
+    animation: bounce 1.4s infinite;
+  }
+
+  .guide.show::after {
+    display: none;
+  }
+
+  .text-question {
+    font-size: 16px;
+  }
+
+  .note {
+    font-size: 13px;
+    color: #666;
+    margin-top: 12px;
+  }
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(47,111,207,0.45);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(47,111,207,0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(47,111,207,0);
+    }
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    50% {
+      transform: translateX(-50%) translateY(-5px);
+    }
+  }
+</style>
+</head>
+<body>
+
+<h1>税理士試験 直前チェック サンプル</h1>
+
+<div class="card">
+  <h2>① 側方路線影響加算率表</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th rowspan="2">地区区分</th>
+        <th colspan="2">加算率</th>
+      </tr>
+      <tr>
+        <th>角地の場合</th>
+        <th>準角地の場合</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="area">ビル街</td>
+        <td><span class="blank guide" data-answer="0.07"></span></td>
+        <td><span class="blank" data-answer="0.03"></span></td>
+      </tr>
+      <tr>
+        <td class="area">高度商業、繁華街</td>
+        <td><span class="blank" data-answer="0.10"></span></td>
+        <td><span class="blank" data-answer="0.05"></span></td>
+      </tr>
+      <tr>
+        <td class="area">普通商業・併用住宅</td>
+        <td><span class="blank" data-answer="0.08"></span></td>
+        <td><span class="blank" data-answer="0.04"></span></td>
+      </tr>
+      <tr>
+        <td class="area">普通住宅、中小工場</td>
+        <td><span class="blank" data-answer="0.03"></span></td>
+        <td><span class="blank" data-answer="0.02"></span></td>
+      </tr>
+      <tr>
+        <td class="area">大工場</td>
+        <td><span class="blank" data-answer="0.02"></span></td>
+        <td><span class="blank" data-answer="0.01"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="note">空欄をタップすると解答が表示されます。もう一度タップすると非表示になります。</p>
+</div>
+
+<div class="card">
+  <h2>② 包括利益の表示に関する会計基準</h2>
+
+  <div class="text-question">
+    <p>
+      4. 「包括利益」とは、ある企業の特定期間の財務諸表において認識された
+      <span class="blank" data-answer="純資産"></span>
+      の変動額のうち、当該企業の純資産に対する
+      <span class="blank" data-answer="持分所有者"></span>
+      との直接的な取引によらない部分をいう。
+    </p>
+
+    <p>
+      当該企業の純資産に対する持分所有者には、当該企業の
+      <span class="blank" data-answer="株主"></span>
+      のほか当該企業の発行する
+      <span class="blank" data-answer="新株予約権"></span>
+      の所有者が含まれ、連結財務諸表においては、当該企業の子会社の
+      <span class="blank" data-answer="非支配株主"></span>
+      も含まれる。
+    </p>
+
+    <p>
+      5. 「その他の包括利益」とは、包括利益のうち
+      <span class="blank" data-answer="当期純利益"></span>
+      に含まれない部分をいう。連結財務諸表におけるその他の包括利益には、
+      <span class="blank" data-answer="親会社株主"></span>
+      に係る部分と
+      <span class="blank" data-answer="非支配株主"></span>
+      に係る部分が含まれる。
+    </p>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll(".blank").forEach(function(blank) {
+    blank.addEventListener("click", function() {
+      blank.classList.toggle("show");
+      blank.classList.remove("guide");
+    });
+  });
+</script>
+
+</body>
+</html>
