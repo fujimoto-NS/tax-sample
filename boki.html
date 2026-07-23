@@ -128,15 +128,16 @@
     display: inline-block;
     margin: 0 0 6px;
     color: var(--accent);
-    font-size: 13px;
+    font-size: 30pt;
     font-weight: bold;
-    letter-spacing: .08em;
+    letter-spacing: 0;
+    line-height: 1.2;
   }
 
   h1 {
     margin: 0;
-    font-size: clamp(25px, 7vw, 34px);
-    line-height: 1.35;
+    font-size: 30pt;
+    line-height: 1.2;
   }
 
   .lead {
@@ -145,21 +146,6 @@
     font-size: 14px;
   }
 
-  .meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 14px;
-  }
-
-  .meta span {
-    padding: 5px 10px;
-    border-radius: 999px;
-    background: var(--accent-pale);
-    color: var(--accent-dark);
-    font-size: 12px;
-    font-weight: bold;
-  }
 
   .instruction {
     margin: 0 0 18px;
@@ -167,8 +153,9 @@
     border-left: 4px solid var(--accent);
     border-radius: 10px;
     background: #fff;
-    color: #475569;
-    font-size: 13px;
+    color: #111;
+    font-size: 16px;
+    line-height: 1.8;
   }
 
   .question-list {
@@ -257,6 +244,7 @@
     min-width: 0;
     color: var(--ink);
     font-size: 14px;
+    text-align: center;
     overflow-wrap: anywhere;
   }
 
@@ -271,7 +259,14 @@
   .amount {
     color: #334155;
     font-size: 13px;
+    text-align: right;
+    justify-self: end;
     white-space: nowrap;
+  }
+
+  .amount.unknown-amount {
+    justify-self: stretch;
+    text-align: center;
   }
 
   .answer-blank {
@@ -427,16 +422,10 @@
     <p class="eyebrow">簿記論</p>
     <h1>3分チェック</h1>
     <p class="lead">電子記録債権に関する仕訳を確認しましょう。</p>
-    <div class="meta" aria-label="問題情報">
-      <span>全5問</span>
-      <span>目安 3分</span>
-      <span>タップで解答表示</span>
-    </div>
   </header>
 
   <p class="instruction">
-    次の取引について、A社の仕訳における空欄ア〜オの勘定科目を答えましょう。
-    「？」の部分は自分で推定してから、青い空欄をタップしてください。
+    次の取引について、Ａ社の仕訳における空欄ア～オの勘定科目を答えなさい。ただし、？の部分は各自推定すること。
   </p>
 
   <section class="question-list" aria-label="簿記論の問題">
@@ -494,14 +483,14 @@
           </div>
           <div class="entry-row">
             <div class="account"><button class="answer-blank" type="button" data-label="ウ" data-answer="電子記録債権売却損" aria-label="空欄ウをタップして解答表示">ウ</button></div>
-            <span class="amount">？</span>
+            <span class="amount unknown-amount">？</span>
           </div>
         </div>
         <div class="entry-side credit">
           <div class="entry-label">貸方</div>
           <div class="entry-row">
             <div class="account">？</div>
-            <span class="amount">？</span>
+            <span class="amount unknown-amount">？</span>
           </div>
         </div>
       </div>
