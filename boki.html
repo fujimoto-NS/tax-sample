@@ -77,11 +77,6 @@
     text-decoration: none;
   }
 
-  .answer-blank::before,
-  .answer-blank.show::before,
-  .answer-blank.amount-blank.show::before {
-    content: none;
-  }
 
   .site-footer {
     margin: 32px -14px -44px;
@@ -290,9 +285,6 @@
     overflow-wrap: anywhere;
   }
 
-  .answer-blank::before {
-    content: "？";
-  }
 
   .answer-blank.show {
     border-color: #e67700;
@@ -300,17 +292,11 @@
     color: var(--orange);
   }
 
-  .answer-blank.show::before {
-    content: attr(data-answer);
-  }
 
   .answer-blank.amount-blank {
     min-width: 46px;
   }
 
-  .answer-blank.amount-blank.show::before {
-    content: attr(data-answer);
-  }
 
   .tap-note {
     margin: 14px 0 0;
