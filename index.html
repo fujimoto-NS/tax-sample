@@ -3,238 +3,248 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>税理士試験 直前チェック サンプル　</title>
+<meta name="theme-color" content="#2f6fcf">
+<title>税理士試験 3分チェック</title>
 <style>
-  body {
-    font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
-    line-height: 1.8;
-    margin: 0;
-    padding: 16px;
-    background: #f4f7fb;
-    color: #222;
+  :root {
+    --blue: #2f6fcf;
+    --blue-dark: #1f4f9c;
+    --blue-pale: #eef5ff;
+    --ink: #1e293b;
+    --muted: #64748b;
+    --line: #d9e2f0;
+    --surface: #ffffff;
+    --background: #f4f7fb;
   }
 
-  h1 {
-    font-size: 22px;
-    margin-bottom: 20px;
-  }
-
-  h2 {
-    font-size: 18px;
-    margin-top: 32px;
-    padding-left: 10px;
-    border-left: 5px solid #2f6fcf;
-  }
-
-  .card {
-    background: #fff;
-    padding: 18px;
-    border-radius: 14px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-    margin-bottom: 28px;
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 12px;
-    font-size: 15px;
-  }
-
-  th, td {
-    border: 1px solid #333;
-    padding: 10px 6px;
-    text-align: center;
-  }
-
-  th {
-    background: #eef3ff;
-  }
-
-  .area {
-    text-align: left;
-    white-space: nowrap;
-  }
-
-  .blank {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 72px;
-    min-height: 34px;
-    padding: 2px 8px;
-    border: 2px solid #2f6fcf;
-    border-radius: 8px;
-    background: #eaf2ff;
-    color: #2f6fcf;
-    font-weight: bold;
-    cursor: pointer;
-    user-select: none;
+  * {
     box-sizing: border-box;
   }
 
-  .blank::before {
-    content: "？";
+  body {
+    font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.7;
+    margin: 0;
+    padding: 20px 16px 40px;
+    background: var(--background);
+    color: var(--ink);
   }
 
-  .blank.show {
-    background: #fff3e0;
-    border-color: #e67700;
-    color: #c75000;
+  main {
+    width: min(100%, 760px);
+    margin: 0 auto;
   }
 
-  .blank.show::before {
-    content: attr(data-answer);
+  .hero {
+    padding: 10px 4px 24px;
   }
 
-  .guide {
-    position: relative;
-    animation: pulse 1.4s infinite;
-  }
-
-  .guide::after {
-    content: "👆 タップ";
-    position: absolute;
-    left: 50%;
-    bottom: -34px;
-    transform: translateX(-50%);
+  .eyebrow {
+    display: inline-block;
+    margin: 0 0 8px;
+    color: var(--blue);
     font-size: 13px;
-    color: #fff;
-    background: #2f6fcf;
-    padding: 3px 8px;
-    border-radius: 999px;
-    white-space: nowrap;
-    animation: bounce 1.4s infinite;
+    font-weight: bold;
+    letter-spacing: .08em;
   }
 
-  .guide.show::after {
-    display: none;
+  h1 {
+    margin: 0;
+    font-size: clamp(25px, 7vw, 34px);
+    line-height: 1.35;
   }
 
-  .text-question {
-    font-size: 16px;
+  .lead {
+    margin: 12px 0 0;
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  .panel {
+    background: var(--surface);
+    border-radius: 18px;
+    box-shadow: 0 5px 18px rgba(31, 79, 156, .09);
+    padding: 20px 16px;
+  }
+
+  h2 {
+    margin: 0 0 16px;
+    font-size: 20px;
+  }
+
+  .subject-list {
+    display: grid;
+    gap: 12px;
+  }
+
+  .subject-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 78px;
+    padding: 14px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: #fff;
+    color: inherit;
+    text-decoration: none;
+    transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+  }
+
+  a.subject-card:active {
+    transform: scale(.985);
+  }
+
+  a.subject-card:focus-visible {
+    outline: 3px solid rgba(47, 111, 207, .35);
+    outline-offset: 2px;
+  }
+
+  a.subject-card:hover {
+    border-color: #a9c5f1;
+    box-shadow: 0 5px 14px rgba(31, 79, 156, .1);
+  }
+
+  .subject-card.is-disabled {
+    background: #f8fafc;
+    color: #94a3b8;
+  }
+
+  .subject-number {
+    display: grid;
+    place-items: center;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: var(--blue-pale);
+    color: var(--blue);
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .is-disabled .subject-number {
+    background: #eef2f7;
+    color: #94a3b8;
+  }
+
+  .subject-copy {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .subject-name {
+    display: block;
+    font-size: 17px;
+    font-weight: bold;
+  }
+
+  .subject-detail {
+    display: block;
+    margin-top: 2px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .is-disabled .subject-detail {
+    color: #94a3b8;
+  }
+
+  .subject-arrow {
+    color: var(--blue);
+    font-size: 24px;
+    line-height: 1;
+  }
+
+  .is-disabled .subject-arrow {
+    color: #cbd5e1;
   }
 
   .note {
+    margin: 18px 2px 0;
+    color: var(--muted);
     font-size: 13px;
-    color: #666;
-    margin-top: 12px;
   }
 
-  @keyframes pulse {
-    0% {
-      box-shadow: 0 0 0 0 rgba(47,111,207,0.45);
-    }
-    70% {
-      box-shadow: 0 0 0 10px rgba(47,111,207,0);
-    }
-    100% {
-      box-shadow: 0 0 0 0 rgba(47,111,207,0);
-    }
-  }
-
-  @keyframes bounce {
-    0%, 100% {
-      transform: translateX(-50%) translateY(0);
-    }
-    50% {
-      transform: translateX(-50%) translateY(-5px);
-    }
+  footer {
+    padding: 18px 4px 0;
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
   }
 </style>
 </head>
 <body>
+<main>
+  <header class="hero">
+    <p class="eyebrow">TAX ACCOUNTANT EXAM</p>
+    <h1>税理士試験<br>3分チェック</h1>
+    <p class="lead">学習した内容を、短時間でサッと確認しましょう。</p>
+  </header>
 
-<h1>税理士試験 直前チェック サンプル</h1>
+  <section class="panel" aria-labelledby="subject-title">
+    <h2 id="subject-title">科目を選択してください</h2>
 
-<div class="card">
-  <h2>① 側方路線影響加算率表</h2>
+    <div class="subject-list">
+      <a class="subject-card" href="boki.html">
+        <span class="subject-number">01</span>
+        <span class="subject-copy">
+          <span class="subject-name">簿記論</span>
+          <span class="subject-detail">電子記録債権｜5問</span>
+        </span>
+        <span class="subject-arrow" aria-hidden="true">›</span>
+      </a>
 
-  <table>
-    <thead>
-      <tr>
-        <th rowspan="2">地区区分</th>
-        <th colspan="2">加算率</th>
-      </tr>
-      <tr>
-        <th>角地の場合</th>
-        <th>準角地の場合</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="area">ビル街</td>
-        <td><span class="blank guide" data-answer="0.07"></span></td>
-        <td><span class="blank" data-answer="0.03"></span></td>
-      </tr>
-      <tr>
-        <td class="area">高度商業、繁華街</td>
-        <td><span class="blank" data-answer="0.10"></span></td>
-        <td><span class="blank" data-answer="0.05"></span></td>
-      </tr>
-      <tr>
-        <td class="area">普通商業・併用住宅</td>
-        <td><span class="blank" data-answer="0.08"></span></td>
-        <td><span class="blank" data-answer="0.04"></span></td>
-      </tr>
-      <tr>
-        <td class="area">普通住宅、中小工場</td>
-        <td><span class="blank" data-answer="0.03"></span></td>
-        <td><span class="blank" data-answer="0.02"></span></td>
-      </tr>
-      <tr>
-        <td class="area">大工場</td>
-        <td><span class="blank" data-answer="0.02"></span></td>
-        <td><span class="blank" data-answer="0.01"></span></td>
-      </tr>
-    </tbody>
-  </table>
+      <div class="subject-card is-disabled" aria-disabled="true">
+        <span class="subject-number">02</span>
+        <span class="subject-copy">
+          <span class="subject-name">財務諸表論</span>
+          <span class="subject-detail">準備中</span>
+        </span>
+        <span class="subject-arrow" aria-hidden="true">›</span>
+      </div>
 
-  <p class="note">空欄をタップすると解答が表示されます。もう一度タップすると非表示になります。</p>
-</div>
+      <div class="subject-card is-disabled" aria-disabled="true">
+        <span class="subject-number">03</span>
+        <span class="subject-copy">
+          <span class="subject-name">法人税法</span>
+          <span class="subject-detail">準備中</span>
+        </span>
+        <span class="subject-arrow" aria-hidden="true">›</span>
+      </div>
 
-<div class="card">
-  <h2>② 包括利益の表示に関する会計基準</h2>
+      <div class="subject-card is-disabled" aria-disabled="true">
+        <span class="subject-number">04</span>
+        <span class="subject-copy">
+          <span class="subject-name">相続税法</span>
+          <span class="subject-detail">準備中</span>
+        </span>
+        <span class="subject-arrow" aria-hidden="true">›</span>
+      </div>
 
-  <div class="text-question">
-    <p>
-      4. 「包括利益」とは、ある企業の特定期間の財務諸表において認識された
-      <span class="blank" data-answer="純資産"></span>
-      の変動額のうち、当該企業の純資産に対する
-      <span class="blank" data-answer="持分所有者"></span>
-      との直接的な取引によらない部分をいう。
-    </p>
+      <div class="subject-card is-disabled" aria-disabled="true">
+        <span class="subject-number">05</span>
+        <span class="subject-copy">
+          <span class="subject-name">消費税法</span>
+          <span class="subject-detail">準備中</span>
+        </span>
+        <span class="subject-arrow" aria-hidden="true">›</span>
+      </div>
 
-    <p>
-      当該企業の純資産に対する持分所有者には、当該企業の
-      <span class="blank" data-answer="株主"></span>
-      のほか当該企業の発行する
-      <span class="blank" data-answer="新株予約権"></span>
-      の所有者が含まれ、連結財務諸表においては、当該企業の子会社の
-      <span class="blank" data-answer="非支配株主"></span>
-      も含まれる。
-    </p>
+      <div class="subject-card is-disabled" aria-disabled="true">
+        <span class="subject-number">06</span>
+        <span class="subject-copy">
+          <span class="subject-name">国税徴収法</span>
+          <span class="subject-detail">準備中</span>
+        </span>
+        <span class="subject-arrow" aria-hidden="true">›</span>
+      </div>
+    </div>
 
-    <p>
-      5. 「その他の包括利益」とは、包括利益のうち
-      <span class="blank" data-answer="当期純利益"></span>
-      に含まれない部分をいう。連結財務諸表におけるその他の包括利益には、
-      <span class="blank" data-answer="親会社株主"></span>
-      に係る部分と
-      <span class="blank" data-answer="非支配株主"></span>
-      に係る部分が含まれる。
-    </p>
-  </div>
-</div>
+    <p class="note">簿記論以外の科目は、原稿が準備でき次第追加します。</p>
+  </section>
 
-<script>
-  document.querySelectorAll(".blank").forEach(function(blank) {
-    blank.addEventListener("click", function() {
-      blank.classList.toggle("show");
-      blank.classList.remove("guide");
-    });
-  });
-</script>
-
+  <footer>スマートフォンでの閲覧に最適化しています。</footer>
+</main>
 </body>
 </html>
