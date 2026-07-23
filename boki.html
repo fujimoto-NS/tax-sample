@@ -4,19 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#2f6fcf">
-<title>簿記論 3分チェック｜税理士試験</title>
+<title>簿記論 3分チェック｜ネットスクール</title>
 <style>
   :root {
-    --blue: #2f6fcf;
-    --blue-dark: #1f4f9c;
-    --blue-pale: #eef5ff;
+    --accent: #3aa91f;
+    --accent-dark: #2d7d15;
+    --accent-pale: #ebf6e9;
     --orange: #c75000;
     --orange-pale: #fff3e0;
     --ink: #1e293b;
     --muted: #64748b;
-    --line: #d9e2f0;
+    --line: #b0dda5;
     --surface: #ffffff;
-    --background: #f4f7fb;
+    --background: #f9f9f9;
   }
 
   * {
@@ -41,7 +41,7 @@
     display: inline-flex;
     align-items: center;
     min-height: 44px;
-    color: var(--blue-dark);
+    color: var(--accent-dark);
     font-size: 14px;
     font-weight: bold;
     text-decoration: none;
@@ -49,8 +49,75 @@
 
   .back-link:focus-visible,
   button:focus-visible {
-    outline: 3px solid rgba(47, 111, 207, .35);
+    outline: 3px solid rgba(58, 169, 31, .35);
     outline-offset: 2px;
+  }
+
+
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 6px 2px 14px;
+    border-bottom: 1px solid var(--accent-pale);
+  }
+
+  .brand-logo img {
+    display: block;
+    width: min(170px, 44vw);
+    height: auto;
+  }
+
+  .official-link {
+    color: var(--accent-dark);
+    font-size: 12px;
+    font-weight: bold;
+    text-align: right;
+    text-decoration: none;
+  }
+
+  .answer-blank::before,
+  .answer-blank.show::before,
+  .answer-blank.amount-blank.show::before {
+    content: none;
+  }
+
+  .site-footer {
+    margin: 32px -14px -44px;
+    padding: 24px 14px 26px;
+    background: #009144;
+    color: #fff;
+    text-align: center;
+  }
+
+  .site-footer-inner {
+    width: min(100%, 760px);
+    margin: 0 auto;
+  }
+
+  .site-footer nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .site-footer a {
+    color: #fff;
+    font-size: 13px;
+    text-decoration: none;
+  }
+
+  .site-footer nav a + a {
+    margin-left: 14px;
+    padding-left: 14px;
+    border-left: 1px solid rgba(255,255,255,.8);
+  }
+
+  .site-footer small {
+    display: block;
+    margin-top: 12px;
+    font-size: 11px;
   }
 
   .hero {
@@ -60,7 +127,7 @@
   .eyebrow {
     display: inline-block;
     margin: 0 0 6px;
-    color: var(--blue);
+    color: var(--accent);
     font-size: 13px;
     font-weight: bold;
     letter-spacing: .08em;
@@ -88,8 +155,8 @@
   .meta span {
     padding: 5px 10px;
     border-radius: 999px;
-    background: var(--blue-pale);
-    color: var(--blue-dark);
+    background: var(--accent-pale);
+    color: var(--accent-dark);
     font-size: 12px;
     font-weight: bold;
   }
@@ -97,7 +164,7 @@
   .instruction {
     margin: 0 0 18px;
     padding: 13px 14px;
-    border-left: 4px solid var(--blue);
+    border-left: 4px solid var(--accent);
     border-radius: 10px;
     background: #fff;
     color: #475569;
@@ -113,7 +180,7 @@
   .answer-panel {
     background: var(--surface);
     border-radius: 16px;
-    box-shadow: 0 4px 15px rgba(31, 79, 156, .08);
+    box-shadow: 0 4px 15px rgba(58, 169, 31, .10);
   }
 
   .question-card {
@@ -135,7 +202,7 @@
     width: 32px;
     height: 32px;
     border-radius: 10px;
-    background: var(--blue);
+    background: var(--accent);
     color: #fff;
     font-size: 14px;
   }
@@ -196,7 +263,7 @@
   .question-mark {
     display: inline-block;
     margin-right: 3px;
-    color: var(--blue);
+    color: var(--accent);
     font-size: 11px;
     font-weight: bold;
   }
@@ -214,10 +281,10 @@
     min-height: 38px;
     max-width: 100%;
     padding: 4px 8px;
-    border: 2px solid var(--blue);
+    border: 2px solid var(--accent);
     border-radius: 8px;
-    background: var(--blue-pale);
-    color: var(--blue);
+    background: var(--accent-pale);
+    color: var(--accent);
     font: inherit;
     font-size: 13px;
     font-weight: bold;
@@ -257,39 +324,6 @@
     text-align: center;
   }
 
-  .answer-summary {
-    margin-top: 18px;
-    padding: 16px 14px;
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    background: #fff;
-  }
-
-  .answer-summary h2,
-  .answer-panel h2 {
-    margin: 0 0 10px;
-    font-size: 18px;
-  }
-
-  .answer-list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .answer-list li {
-    padding: 8px 10px;
-    border-radius: 8px;
-    background: var(--blue-pale);
-    font-size: 13px;
-  }
-
-  .answer-list strong {
-    color: var(--blue-dark);
-  }
 
   .explanation-trigger {
     width: 100%;
@@ -298,13 +332,13 @@
     padding: 12px 16px;
     border: 0;
     border-radius: 12px;
-    background: var(--blue);
+    background: var(--accent);
     color: #fff;
     font: inherit;
     font-size: 15px;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(47, 111, 207, .22);
+    box-shadow: 0 4px 10px rgba(58, 169, 31, .22);
   }
 
   .explanation-trigger:active {
@@ -312,7 +346,7 @@
   }
 
   .explanation-trigger[aria-expanded="true"] {
-    background: var(--blue-dark);
+    background: var(--accent-dark);
   }
 
   .answer-panel {
@@ -360,7 +394,7 @@
   .footer-link {
     display: block;
     margin-top: 24px;
-    color: var(--blue-dark);
+    color: var(--accent-dark);
     font-size: 13px;
     text-align: center;
     text-decoration: none;
@@ -380,6 +414,13 @@
 </head>
 <body>
 <main>
+  <header class="site-header">
+    <a class="brand-logo" href="https://www.net-school.co.jp/" target="_blank" rel="noopener">
+      <img src="https://www.net-school.co.jp/event/zei/kaitou/images/logo.png" alt="ネットスクール">
+    </a>
+    <a class="official-link" href="https://www.net-school.co.jp/" target="_blank" rel="noopener">ネットスクール<br>公式サイト ↗</a>
+  </header>
+
   <a class="back-link" href="index.html">‹ 科目選択に戻る</a>
 
   <header class="hero">
@@ -406,14 +447,14 @@
         <div class="entry-side debit">
           <div class="entry-label">借方</div>
           <div class="entry-row">
-            <div class="account"><span class="question-mark">ア</span><button class="answer-blank" type="button" data-answer="売掛金" aria-label="借方の勘定科目アを表示"></button></div>
+            <div class="account"><button class="answer-blank" type="button" data-label="ア" data-answer="売掛金" aria-label="空欄アをタップして解答表示">ア</button></div>
             <span class="amount">18,000</span>
           </div>
         </div>
         <div class="entry-side credit">
           <div class="entry-label">貸方</div>
           <div class="entry-row">
-            <div class="account"><button class="answer-blank" type="button" data-answer="売上" aria-label="貸方の勘定科目を表示"></button></div>
+            <div class="account">？</div>
             <span class="amount">18,000</span>
           </div>
         </div>
@@ -427,14 +468,14 @@
         <div class="entry-side debit">
           <div class="entry-label">借方</div>
           <div class="entry-row">
-            <div class="account"><span class="question-mark">イ</span><button class="answer-blank" type="button" data-answer="電子記録債権" aria-label="借方の勘定科目イを表示"></button></div>
+            <div class="account"><button class="answer-blank" type="button" data-label="イ" data-answer="電子記録債権" aria-label="空欄イをタップして解答表示">イ</button></div>
             <span class="amount">18,000</span>
           </div>
         </div>
         <div class="entry-side credit">
           <div class="entry-label">貸方</div>
           <div class="entry-row">
-            <div class="account"><button class="answer-blank" type="button" data-answer="売掛金" aria-label="貸方の勘定科目を表示"></button></div>
+            <div class="account">？</div>
             <span class="amount">18,000</span>
           </div>
         </div>
@@ -452,15 +493,15 @@
             <span class="amount">5,800</span>
           </div>
           <div class="entry-row">
-            <div class="account"><span class="question-mark">ウ</span><button class="answer-blank" type="button" data-answer="電子記録債権売却損" aria-label="借方の勘定科目ウを表示"></button></div>
-            <button class="answer-blank amount-blank" type="button" data-answer="200" aria-label="借方の金額を表示"></button>
+            <div class="account"><button class="answer-blank" type="button" data-label="ウ" data-answer="電子記録債権売却損" aria-label="空欄ウをタップして解答表示">ウ</button></div>
+            <span class="amount">？</span>
           </div>
         </div>
         <div class="entry-side credit">
           <div class="entry-label">貸方</div>
           <div class="entry-row">
-            <div class="account"><button class="answer-blank" type="button" data-answer="電子記録債権" aria-label="貸方の勘定科目を表示"></button></div>
-            <button class="answer-blank amount-blank" type="button" data-answer="6,000" aria-label="貸方の金額を表示"></button>
+            <div class="account">？</div>
+            <span class="amount">？</span>
           </div>
         </div>
       </div>
@@ -473,14 +514,14 @@
         <div class="entry-side debit">
           <div class="entry-label">借方</div>
           <div class="entry-row">
-            <div class="account"><span class="question-mark">エ</span><button class="answer-blank" type="button" data-answer="買掛金" aria-label="借方の勘定科目エを表示"></button></div>
+            <div class="account"><button class="answer-blank" type="button" data-label="エ" data-answer="買掛金" aria-label="空欄エをタップして解答表示">エ</button></div>
             <span class="amount">5,000</span>
           </div>
         </div>
         <div class="entry-side credit">
           <div class="entry-label">貸方</div>
           <div class="entry-row">
-            <div class="account"><button class="answer-blank" type="button" data-answer="電子記録債権" aria-label="貸方の勘定科目を表示"></button></div>
+            <div class="account">？</div>
             <span class="amount">5,000</span>
           </div>
         </div>
@@ -494,14 +535,14 @@
         <div class="entry-side debit">
           <div class="entry-label">借方</div>
           <div class="entry-row">
-            <div class="account"><span class="question-mark">オ</span><button class="answer-blank" type="button" data-answer="普通預金" aria-label="借方の勘定科目オを表示"></button></div>
+            <div class="account"><button class="answer-blank" type="button" data-label="オ" data-answer="普通預金" aria-label="空欄オをタップして解答表示">オ</button></div>
             <span class="amount">4,000</span>
           </div>
         </div>
         <div class="entry-side credit">
           <div class="entry-label">貸方</div>
           <div class="entry-row">
-            <div class="account"><button class="answer-blank" type="button" data-answer="電子記録債権" aria-label="貸方の勘定科目を表示"></button></div>
+            <div class="account">？</div>
             <span class="amount">4,000</span>
           </div>
         </div>
@@ -509,16 +550,6 @@
     </article>
   </section>
 
-  <section class="answer-summary" aria-labelledby="answer-summary-title">
-    <h2 id="answer-summary-title">解答</h2>
-    <ul class="answer-list">
-      <li><strong>ア</strong> 売掛金</li>
-      <li><strong>イ</strong> 電子記録債権</li>
-      <li><strong>ウ</strong> 電子記録債権売却損</li>
-      <li><strong>エ</strong> 買掛金</li>
-      <li><strong>オ</strong> 普通預金</li>
-    </ul>
-  </section>
 
   <button class="explanation-trigger" type="button" aria-expanded="false" aria-controls="explanation">
     正しい仕訳を確認する
@@ -566,13 +597,27 @@
   </section>
 
   <a class="footer-link" href="index.html">‹ 科目選択に戻る</a>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <nav aria-label="フッターメニュー">
+        <a href="index.html">TOP</a>
+        <a href="https://www.net-school.co.jp/corporate/" target="_blank" rel="noopener">会社概要</a>
+      </nav>
+      <small>Copyright © Net-School All Rights Reserved.</small>
+    </div>
+  </footer>
 </main>
 
 <script>
   document.querySelectorAll(".answer-blank").forEach(function(blank) {
     blank.addEventListener("click", function() {
       const isShown = blank.classList.toggle("show");
+      blank.textContent = isShown ? blank.dataset.answer : blank.dataset.label;
       blank.setAttribute("aria-pressed", String(isShown));
+      blank.setAttribute("aria-label", isShown
+        ? blank.dataset.answer + "（空欄" + blank.dataset.label + "の解答）"
+        : "空欄" + blank.dataset.label + "をタップして解答表示");
     });
   });
 
