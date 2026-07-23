@@ -4,17 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#2f6fcf">
-<title>税理士試験 3分チェック</title>
+<title>税理士試験 3分チェック｜ネットスクール</title>
 <style>
   :root {
-    --blue: #2f6fcf;
-    --blue-dark: #1f4f9c;
-    --blue-pale: #eef5ff;
+    --blue: #009144;
+    --blue-dark: #00491f;
+    --blue-pale: #e5f4ec;
     --ink: #1e293b;
     --muted: #64748b;
     --line: #d9e2f0;
     --surface: #ffffff;
-    --background: #f4f7fb;
+    --background: #f9f9f9;
   }
 
   * {
@@ -33,6 +33,89 @@
   main {
     width: min(100%, 760px);
     margin: 0 auto;
+  }
+
+
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 6px 2px 14px;
+    border-bottom: 1px solid #cce9da;
+  }
+
+  .brand-logo img {
+    display: block;
+    width: min(170px, 44vw);
+    height: auto;
+  }
+
+  .official-link {
+    color: var(--blue-dark);
+    font-size: 12px;
+    font-weight: bold;
+    text-align: right;
+    text-decoration: none;
+  }
+
+  .subject-card {
+    border-left: 5px solid var(--subject-color, var(--blue));
+  }
+
+  .subject-number {
+    background: var(--subject-pale, var(--blue-pale));
+    color: var(--subject-color, var(--blue));
+  }
+
+  .subject-card.is-disabled .subject-number {
+    background: var(--subject-pale, var(--blue-pale));
+    color: var(--subject-color, var(--blue));
+  }
+
+  .subject-card.is-disabled .subject-detail {
+    color: var(--muted);
+  }
+
+  .subject-card .subject-arrow {
+    color: var(--subject-color, var(--blue));
+  }
+
+  .site-footer {
+    margin: 28px -16px -40px;
+    padding: 24px 16px 26px;
+    background: #009144;
+    color: #fff;
+    text-align: center;
+  }
+
+  .site-footer-inner {
+    width: min(100%, 760px);
+    margin: 0 auto;
+  }
+
+  .site-footer nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .site-footer a {
+    color: #fff;
+    font-size: 13px;
+    text-decoration: none;
+  }
+
+  .site-footer nav a + a {
+    margin-left: 14px;
+    padding-left: 14px;
+    border-left: 1px solid rgba(255,255,255,.8);
+  }
+
+  .site-footer small {
+    display: block;
+    margin-top: 12px;
+    font-size: 11px;
   }
 
   .hero {
@@ -176,6 +259,13 @@
 </head>
 <body>
 <main>
+  <header class="site-header">
+    <a class="brand-logo" href="https://www.net-school.co.jp/" target="_blank" rel="noopener">
+      <img src="https://www.net-school.co.jp/event/zei/kaitou/images/logo.png" alt="ネットスクール">
+    </a>
+    <a class="official-link" href="https://www.net-school.co.jp/" target="_blank" rel="noopener">ネットスクール<br>公式サイト ↗</a>
+  </header>
+
   <header class="hero">
     <p class="eyebrow">TAX ACCOUNTANT EXAM</p>
     <h1>税理士試験<br>3分チェック</h1>
@@ -186,7 +276,7 @@
     <h2 id="subject-title">科目を選択してください</h2>
 
     <div class="subject-list">
-      <a class="subject-card" href="boki.html">
+      <a class="subject-card" href="boki.html" style="--subject-color: #3aa91f; --subject-pale: #ebf6e9;">
         <span class="subject-number">01</span>
         <span class="subject-copy">
           <span class="subject-name">簿記論</span>
@@ -195,7 +285,7 @@
         <span class="subject-arrow" aria-hidden="true">›</span>
       </a>
 
-      <div class="subject-card is-disabled" aria-disabled="true">
+      <div class="subject-card is-disabled" aria-disabled="true" style="--subject-color: #bb4284; --subject-pale: #f8ecf3;">
         <span class="subject-number">02</span>
         <span class="subject-copy">
           <span class="subject-name">財務諸表論</span>
@@ -204,7 +294,7 @@
         <span class="subject-arrow" aria-hidden="true">›</span>
       </div>
 
-      <div class="subject-card is-disabled" aria-disabled="true">
+      <div class="subject-card is-disabled" aria-disabled="true" style="--subject-color: #dc6a00; --subject-pale: #fbf0e5;">
         <span class="subject-number">03</span>
         <span class="subject-copy">
           <span class="subject-name">法人税法</span>
@@ -213,7 +303,7 @@
         <span class="subject-arrow" aria-hidden="true">›</span>
       </div>
 
-      <div class="subject-card is-disabled" aria-disabled="true">
+      <div class="subject-card is-disabled" aria-disabled="true" style="--subject-color: #3060a5; --subject-pale: #eaeff6;">
         <span class="subject-number">04</span>
         <span class="subject-copy">
           <span class="subject-name">相続税法</span>
@@ -222,7 +312,7 @@
         <span class="subject-arrow" aria-hidden="true">›</span>
       </div>
 
-      <div class="subject-card is-disabled" aria-disabled="true">
+      <div class="subject-card is-disabled" aria-disabled="true" style="--subject-color: #893b8b; --subject-pale: #f3ebf3;">
         <span class="subject-number">05</span>
         <span class="subject-copy">
           <span class="subject-name">消費税法</span>
@@ -231,7 +321,7 @@
         <span class="subject-arrow" aria-hidden="true">›</span>
       </div>
 
-      <div class="subject-card is-disabled" aria-disabled="true">
+      <div class="subject-card is-disabled" aria-disabled="true" style="--subject-color: #2681a5; --subject-pale: #e9f2f6;">
         <span class="subject-number">06</span>
         <span class="subject-copy">
           <span class="subject-name">国税徴収法</span>
@@ -244,7 +334,15 @@
     <p class="note">簿記論以外の科目は、原稿が準備でき次第追加します。</p>
   </section>
 
-  <footer>スマートフォンでの閲覧に最適化しています。</footer>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <nav aria-label="フッターメニュー">
+        <a href="index.html">TOP</a>
+        <a href="https://www.net-school.co.jp/corporate/" target="_blank" rel="noopener">会社概要</a>
+      </nav>
+      <small>Copyright © Net-School All Rights Reserved.</small>
+    </div>
+  </footer>
 </main>
 </body>
 </html>
