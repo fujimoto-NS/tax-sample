@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#2f6fcf">
+<title>簿記論 3分チェック｜税理士試験</title>
+<style>
+  :root {
+    --blue: #2f6fcf;
+    --blue-dark: #1f4f9c;
+    --blue-pale: #eef5ff;
+    --orange: #c75000;
+    --orange-pale: #fff3e0;
+    --ink: #1e293b;
+    --muted: #64748b;
+    --line: #d9e2f0;
+    --surface: #ffffff;
+    --background: #f4f7fb;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.75;
+    margin: 0;
+    padding: 16px 14px 44px;
+    background: var(--background);
+    color: var(--ink);
+  }
+
+  main {
+    width: min(100%, 760px);
+    margin: 0 auto;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--blue-dark);
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .back-link:focus-visible,
+  button:focus-visible {
+    outline: 3px solid rgba(47, 111, 207, .35);
+    outline-offset: 2px;
+  }
+
+  .hero {
+    padding: 8px 4px 18px;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    margin: 0 0 6px;
+    color: var(--blue);
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: .08em;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(25px, 7vw, 34px);
+    line-height: 1.35;
+  }
+
+  .lead {
+    margin: 10px 0 0;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .meta span {
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: var(--blue-pale);
+    color: var(--blue-dark);
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .instruction {
+    margin: 0 0 18px;
+    padding: 13px 14px;
+    border-left: 4px solid var(--blue);
+    border-radius: 10px;
+    background: #fff;
+    color: #475569;
+    font-size: 13px;
+  }
+
+  .question-list {
+    display: grid;
+    gap: 16px;
+  }
+
+  .question-card,
+  .answer-panel {
+    background: var(--surface);
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(31, 79, 156, .08);
+  }
+
+  .question-card {
+    padding: 16px 14px 17px;
+  }
+
+  .question-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 11px;
+    font-size: 17px;
+  }
+
+  .question-number {
+    display: grid;
+    place-items: center;
+    flex: 0 0 32px;
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    background: var(--blue);
+    color: #fff;
+    font-size: 14px;
+  }
+
+  .question-text {
+    margin: 0 0 14px;
+    font-size: 14px;
+  }
+
+  .entry {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .entry-side {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #fbfdff;
+  }
+
+  .entry-side.debit {
+    border-top: 4px solid #3b82f6;
+  }
+
+  .entry-side.credit {
+    border-top: 4px solid #64748b;
+  }
+
+  .entry-label {
+    padding: 6px 8px;
+    border-bottom: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .entry-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 7px;
+    min-height: 54px;
+    padding: 8px;
+  }
+
+  .account {
+    min-width: 0;
+    color: var(--ink);
+    font-size: 14px;
+    overflow-wrap: anywhere;
+  }
+
+  .question-mark {
+    display: inline-block;
+    margin-right: 3px;
+    color: var(--blue);
+    font-size: 11px;
+    font-weight: bold;
+  }
+
+  .amount {
+    color: #334155;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .answer-blank {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 38px;
+    max-width: 100%;
+    padding: 4px 8px;
+    border: 2px solid var(--blue);
+    border-radius: 8px;
+    background: var(--blue-pale);
+    color: var(--blue);
+    font: inherit;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 1.35;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    overflow-wrap: anywhere;
+  }
+
+  .answer-blank::before {
+    content: "？";
+  }
+
+  .answer-blank.show {
+    border-color: #e67700;
+    background: var(--orange-pale);
+    color: var(--orange);
+  }
+
+  .answer-blank.show::before {
+    content: attr(data-answer);
+  }
+
+  .answer-blank.amount-blank {
+    min-width: 46px;
+  }
+
+  .answer-blank.amount-blank.show::before {
+    content: attr(data-answer);
+  }
+
+  .tap-note {
+    margin: 14px 0 0;
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .answer-summary {
+    margin-top: 18px;
+    padding: 16px 14px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: #fff;
+  }
+
+  .answer-summary h2,
+  .answer-panel h2 {
+    margin: 0 0 10px;
+    font-size: 18px;
+  }
+
+  .answer-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .answer-list li {
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: var(--blue-pale);
+    font-size: 13px;
+  }
+
+  .answer-list strong {
+    color: var(--blue-dark);
+  }
+
+  .explanation-trigger {
+    width: 100%;
+    min-height: 52px;
+    margin-top: 18px;
+    padding: 12px 16px;
+    border: 0;
+    border-radius: 12px;
+    background: var(--blue);
+    color: #fff;
+    font: inherit;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(47, 111, 207, .22);
+  }
+
+  .explanation-trigger:active {
+    transform: translateY(1px);
+  }
+
+  .explanation-trigger[aria-expanded="true"] {
+    background: var(--blue-dark);
+  }
+
+  .answer-panel {
+    display: none;
+    margin-top: 14px;
+    padding: 16px 14px;
+  }
+
+  .answer-panel.is-visible {
+    display: block;
+  }
+
+  .answer-panel h2 {
+    padding-left: 9px;
+    border-left: 4px solid #e67700;
+  }
+
+  .explanation-list {
+    display: grid;
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .explanation-item {
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .explanation-item:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .explanation-item h3 {
+    margin: 0 0 7px;
+    font-size: 15px;
+  }
+
+  .explanation-item .entry {
+    margin-top: 0;
+  }
+
+  .footer-link {
+    display: block;
+    margin-top: 24px;
+    color: var(--blue-dark);
+    font-size: 13px;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  @media (min-width: 600px) {
+    body {
+      padding: 24px 20px 56px;
+    }
+
+    .question-card,
+    .answer-panel {
+      padding: 20px;
+    }
+  }
+</style>
+</head>
+<body>
+<main>
+  <a class="back-link" href="index.html">‹ 科目選択に戻る</a>
+
+  <header class="hero">
+    <p class="eyebrow">簿記論</p>
+    <h1>3分チェック</h1>
+    <p class="lead">電子記録債権に関する仕訳を確認しましょう。</p>
+    <div class="meta" aria-label="問題情報">
+      <span>全5問</span>
+      <span>目安 3分</span>
+      <span>タップで解答表示</span>
+    </div>
+  </header>
+
+  <p class="instruction">
+    次の取引について、A社の仕訳における空欄ア〜オの勘定科目を答えましょう。
+    「？」の部分は自分で推定してから、青い空欄をタップしてください。
+  </p>
+
+  <section class="question-list" aria-label="簿記論の問題">
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">1</span>商品を掛販売した場合</h2>
+      <p class="question-text">A社は、商品をB社に18,000円で掛販売した。</p>
+      <div class="entry" aria-label="第1問の仕訳">
+        <div class="entry-side debit">
+          <div class="entry-label">借方</div>
+          <div class="entry-row">
+            <div class="account"><span class="question-mark">ア</span><button class="answer-blank" type="button" data-answer="売掛金" aria-label="借方の勘定科目アを表示"></button></div>
+            <span class="amount">18,000</span>
+          </div>
+        </div>
+        <div class="entry-side credit">
+          <div class="entry-label">貸方</div>
+          <div class="entry-row">
+            <div class="account"><button class="answer-blank" type="button" data-answer="売上" aria-label="貸方の勘定科目を表示"></button></div>
+            <span class="amount">18,000</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">2</span>電子記録債権の発生</h2>
+      <p class="question-text">A社のB社に対する売掛金について、電子記録債権18,000円の発生記録が行われた。</p>
+      <div class="entry" aria-label="第2問の仕訳">
+        <div class="entry-side debit">
+          <div class="entry-label">借方</div>
+          <div class="entry-row">
+            <div class="account"><span class="question-mark">イ</span><button class="answer-blank" type="button" data-answer="電子記録債権" aria-label="借方の勘定科目イを表示"></button></div>
+            <span class="amount">18,000</span>
+          </div>
+        </div>
+        <div class="entry-side credit">
+          <div class="entry-label">貸方</div>
+          <div class="entry-row">
+            <div class="account"><button class="answer-blank" type="button" data-answer="売掛金" aria-label="貸方の勘定科目を表示"></button></div>
+            <span class="amount">18,000</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">3</span>電子記録債権の譲渡</h2>
+      <p class="question-text">A社は、譲渡記録により電子記録債権6,000円をC社に5,800円で譲渡し、代金は普通預金口座に入金された。</p>
+      <div class="entry" aria-label="第3問の仕訳">
+        <div class="entry-side debit">
+          <div class="entry-label">借方</div>
+          <div class="entry-row">
+            <div class="account">普通預金</div>
+            <span class="amount">5,800</span>
+          </div>
+          <div class="entry-row">
+            <div class="account"><span class="question-mark">ウ</span><button class="answer-blank" type="button" data-answer="電子記録債権売却損" aria-label="借方の勘定科目ウを表示"></button></div>
+            <button class="answer-blank amount-blank" type="button" data-answer="200" aria-label="借方の金額を表示"></button>
+          </div>
+        </div>
+        <div class="entry-side credit">
+          <div class="entry-label">貸方</div>
+          <div class="entry-row">
+            <div class="account"><button class="answer-blank" type="button" data-answer="電子記録債権" aria-label="貸方の勘定科目を表示"></button></div>
+            <button class="answer-blank amount-blank" type="button" data-answer="6,000" aria-label="貸方の金額を表示"></button>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">4</span>買掛金との引換え</h2>
+      <p class="question-text">A社は、譲渡記録により電子記録債権5,000円をD社に買掛金5,000円と引換えに譲渡した。</p>
+      <div class="entry" aria-label="第4問の仕訳">
+        <div class="entry-side debit">
+          <div class="entry-label">借方</div>
+          <div class="entry-row">
+            <div class="account"><span class="question-mark">エ</span><button class="answer-blank" type="button" data-answer="買掛金" aria-label="借方の勘定科目エを表示"></button></div>
+            <span class="amount">5,000</span>
+          </div>
+        </div>
+        <div class="entry-side credit">
+          <div class="entry-label">貸方</div>
+          <div class="entry-row">
+            <div class="account"><button class="answer-blank" type="button" data-answer="電子記録債権" aria-label="貸方の勘定科目を表示"></button></div>
+            <span class="amount">5,000</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">5</span>電子記録債権の決済</h2>
+      <p class="question-text">B社の普通預金口座から、A社の普通預金口座に電子記録債権4,000円の払込みによる振込みが行われた。</p>
+      <div class="entry" aria-label="第5問の仕訳">
+        <div class="entry-side debit">
+          <div class="entry-label">借方</div>
+          <div class="entry-row">
+            <div class="account"><span class="question-mark">オ</span><button class="answer-blank" type="button" data-answer="普通預金" aria-label="借方の勘定科目オを表示"></button></div>
+            <span class="amount">4,000</span>
+          </div>
+        </div>
+        <div class="entry-side credit">
+          <div class="entry-label">貸方</div>
+          <div class="entry-row">
+            <div class="account"><button class="answer-blank" type="button" data-answer="電子記録債権" aria-label="貸方の勘定科目を表示"></button></div>
+            <span class="amount">4,000</span>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section class="answer-summary" aria-labelledby="answer-summary-title">
+    <h2 id="answer-summary-title">解答</h2>
+    <ul class="answer-list">
+      <li><strong>ア</strong> 売掛金</li>
+      <li><strong>イ</strong> 電子記録債権</li>
+      <li><strong>ウ</strong> 電子記録債権売却損</li>
+      <li><strong>エ</strong> 買掛金</li>
+      <li><strong>オ</strong> 普通預金</li>
+    </ul>
+  </section>
+
+  <button class="explanation-trigger" type="button" aria-expanded="false" aria-controls="explanation">
+    正しい仕訳を確認する
+  </button>
+
+  <section class="answer-panel" id="explanation" aria-labelledby="explanation-title">
+    <h2 id="explanation-title">解説｜完成仕訳</h2>
+    <ol class="explanation-list">
+      <li class="explanation-item">
+        <h3>⑴ 商品を掛販売した場合</h3>
+        <div class="entry" aria-label="第1問の完成仕訳">
+          <div class="entry-side debit"><div class="entry-label">借方</div><div class="entry-row"><div class="account">売掛金</div><span class="amount">18,000</span></div></div>
+          <div class="entry-side credit"><div class="entry-label">貸方</div><div class="entry-row"><div class="account">売上</div><span class="amount">18,000</span></div></div>
+        </div>
+      </li>
+      <li class="explanation-item">
+        <h3>⑵ 電子記録債権の発生</h3>
+        <div class="entry" aria-label="第2問の完成仕訳">
+          <div class="entry-side debit"><div class="entry-label">借方</div><div class="entry-row"><div class="account">電子記録債権</div><span class="amount">18,000</span></div></div>
+          <div class="entry-side credit"><div class="entry-label">貸方</div><div class="entry-row"><div class="account">売掛金</div><span class="amount">18,000</span></div></div>
+        </div>
+      </li>
+      <li class="explanation-item">
+        <h3>⑶ 電子記録債権を譲渡した場合</h3>
+        <div class="entry" aria-label="第3問の完成仕訳">
+          <div class="entry-side debit"><div class="entry-label">借方</div><div class="entry-row"><div class="account">普通預金</div><span class="amount">5,800</span></div><div class="entry-row"><div class="account">電子記録債権売却損</div><span class="amount">200</span></div></div>
+          <div class="entry-side credit"><div class="entry-label">貸方</div><div class="entry-row"><div class="account">電子記録債権</div><span class="amount">6,000</span></div></div>
+        </div>
+      </li>
+      <li class="explanation-item">
+        <h3>⑷ 買掛金と引き換えに譲渡した場合</h3>
+        <div class="entry" aria-label="第4問の完成仕訳">
+          <div class="entry-side debit"><div class="entry-label">借方</div><div class="entry-row"><div class="account">買掛金</div><span class="amount">5,000</span></div></div>
+          <div class="entry-side credit"><div class="entry-label">貸方</div><div class="entry-row"><div class="account">電子記録債権</div><span class="amount">5,000</span></div></div>
+        </div>
+      </li>
+      <li class="explanation-item">
+        <h3>⑸ 電子記録債権が決済された場合</h3>
+        <div class="entry" aria-label="第5問の完成仕訳">
+          <div class="entry-side debit"><div class="entry-label">借方</div><div class="entry-row"><div class="account">普通預金</div><span class="amount">4,000</span></div></div>
+          <div class="entry-side credit"><div class="entry-label">貸方</div><div class="entry-row"><div class="account">電子記録債権</div><span class="amount">4,000</span></div></div>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <a class="footer-link" href="index.html">‹ 科目選択に戻る</a>
+</main>
+
+<script>
+  document.querySelectorAll(".answer-blank").forEach(function(blank) {
+    blank.addEventListener("click", function() {
+      const isShown = blank.classList.toggle("show");
+      blank.setAttribute("aria-pressed", String(isShown));
+    });
+  });
+
+  const explanationTrigger = document.querySelector(".explanation-trigger");
+  const explanation = document.querySelector("#explanation");
+
+  explanationTrigger.addEventListener("click", function() {
+    const isVisible = explanation.classList.toggle("is-visible");
+    explanationTrigger.setAttribute("aria-expanded", String(isVisible));
+    explanationTrigger.textContent = isVisible
+      ? "完成仕訳を閉じる"
+      : "正しい仕訳を確認する";
+    if (isVisible) {
+      explanation.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+</script>
+</body>
+</html>
