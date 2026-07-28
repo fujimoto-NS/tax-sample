@@ -205,8 +205,10 @@
     line-height: 1.7;
   }
 
-  .encouragement-message strong {
-    color: #dc6a00;
+  .encouragement-card .answer-blank {
+    min-width: 92px;
+    min-height: 48px;
+    font-size: 20px;
   }
 
   .encouragement-note {
@@ -380,7 +382,7 @@
 
   <section class="encouragement-card" aria-labelledby="encouragement-title">
     <h2 id="encouragement-title">最後に、先生からのメッセージ</h2>
-    <p class="encouragement-message">自分は今日の国税徴収法の試験に合格する<strong>自信</strong>がある。</p>
+    <p class="encouragement-message">自分は今日の国税徴収法の試験に合格する<button class="answer-blank encouragement-blank" type="button" data-label="？" data-answer="自信" aria-label="応援メッセージの解答を表示">？</button>がある。</p>
     <p class="encouragement-note">この気持ちを胸に、最後まで落ち着いて取り組みましょう。</p>
   </section>
 
