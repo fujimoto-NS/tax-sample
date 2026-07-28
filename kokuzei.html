@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#2681a5">
+<title>国税徴収法 3分チェック｜ネットスクール</title>
+<style>
+  :root {
+    --accent: #2681a5;
+    --accent-dark: #1d647b;
+    --accent-pale: #e9f2f6;
+    --accent-line: #a8cddb;
+    --answer: #ff8b00;
+    --answer-pale: #fff6cc;
+    --ink: #1e293b;
+    --muted: #64748b;
+    --surface: #ffffff;
+    --background: #f9f9f9;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.75;
+    margin: 0;
+    padding: 16px 14px 44px;
+    background: var(--background);
+    color: var(--ink);
+  }
+
+  main {
+    width: min(100%, 760px);
+    margin: 0 auto;
+    flex: 1;
+  }
+
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 6px 2px 14px;
+    border-bottom: 1px solid var(--accent-pale);
+  }
+
+  .brand-logo img {
+    display: block;
+    width: min(170px, 44vw);
+    height: auto;
+  }
+
+  .official-link,
+  .back-link,
+  .footer-link {
+    color: var(--accent-dark);
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .official-link {
+    font-size: 12px;
+    text-align: right;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    margin-top: 4px;
+  }
+
+  .hero {
+    padding: 8px 4px 18px;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    margin: 0 0 6px;
+    color: var(--accent);
+    font-size: 30pt;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 1.2;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 30pt;
+    line-height: 1.2;
+  }
+
+  .lead {
+    margin: 10px 0 0;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  .instruction {
+    margin: 0 0 18px;
+    padding: 13px 14px;
+    border-left: 4px solid var(--accent);
+    border-radius: 10px;
+    background: #fff;
+    color: #111;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .question-list {
+    display: grid;
+    gap: 14px;
+  }
+
+  .question-card {
+    padding: 16px 14px 17px;
+    background: var(--surface);
+    border: 1px solid var(--accent-line);
+    border-top: 5px solid var(--accent);
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(38, 129, 165, .10);
+  }
+
+  .question-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 10px;
+    font-size: 17px;
+  }
+
+  .question-number {
+    display: grid;
+    place-items: center;
+    flex: 0 0 32px;
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 14px;
+  }
+
+  .question-text {
+    margin: 0;
+    color: #111;
+    font-size: 16px;
+    line-height: 2;
+  }
+
+  .answer-blank {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 76px;
+    min-height: 40px;
+    margin: 0 3px;
+    padding: 4px 10px;
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    background: var(--accent-pale);
+    color: var(--accent-dark);
+    font: inherit;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.35;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .answer-blank.show {
+    border-color: var(--answer);
+    background: var(--answer-pale);
+    color: #c75000;
+  }
+
+  .encouragement-card {
+    margin-top: 18px;
+    padding: 22px 16px 24px;
+    border: 2px solid var(--answer);
+    border-radius: 16px;
+    background: var(--answer-pale);
+    text-align: center;
+  }
+
+  .encouragement-card h2 {
+    margin: 0 0 12px;
+    color: #dc6a00;
+    font-size: 19px;
+  }
+
+  .encouragement-message {
+    margin: 0;
+    color: #3e3a39;
+    font-size: clamp(21px, 5.5vw, 28px);
+    font-weight: bold;
+    line-height: 1.7;
+  }
+
+  .encouragement-message strong {
+    color: #dc6a00;
+  }
+
+  .encouragement-note {
+    margin: 12px 0 0;
+    color: #7b5b26;
+    font-size: 13px;
+  }
+
+  .footer-link {
+    display: block;
+    margin-top: 24px;
+    text-align: center;
+  }
+
+  .site-footer {
+    margin: 32px -14px -44px;
+    padding: 24px 14px 26px;
+    background: #009144;
+    color: #fff;
+    text-align: center;
+  }
+
+  .site-footer-inner {
+    width: min(100%, 760px);
+    margin: 0 auto;
+  }
+
+  .site-footer nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .site-footer a {
+    color: #fff;
+    font-size: 13px;
+    text-decoration: none;
+  }
+
+  .site-footer nav a + a {
+    margin-left: 14px;
+    padding-left: 14px;
+    border-left: 1px solid rgba(255,255,255,.8);
+  }
+
+  .site-footer small {
+    display: block;
+    margin-top: 12px;
+    font-size: 11px;
+  }
+
+  button:focus-visible,
+  a:focus-visible {
+    outline: 3px solid rgba(38, 129, 165, .35);
+    outline-offset: 2px;
+  }
+
+  @media (min-width: 600px) {
+    body {
+      padding: 24px 20px 56px;
+    }
+
+    .question-card {
+      padding: 20px;
+    }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header class="site-header">
+    <a class="brand-logo" href="https://www.net-school.co.jp/" target="_blank" rel="noopener">
+      <img src="https://www.net-school.co.jp/event/zei/kaitou/images/logo.png" alt="ネットスクール">
+    </a>
+    <a class="official-link" href="https://www.net-school.co.jp/" target="_blank" rel="noopener">ネットスクール<br>公式サイト ↗</a>
+  </header>
+
+  <a class="back-link" href="index.html">‹ 科目選択に戻る</a>
+
+  <header class="hero">
+    <p class="eyebrow">国税徴収法</p>
+    <h1>3分チェック</h1>
+    <p class="lead">国税徴収法の重要事項を短時間で確認しましょう。</p>
+  </header>
+
+  <p class="instruction">
+    問題　下記の（　　）の中に入る語句を答えなさい。
+  </p>
+
+  <section class="question-list" aria-label="国税徴収法の問題">
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">1</span>確認問題</h2>
+      <p class="question-text">第二次納税義務者への納付催告書は納付の期限から<button class="answer-blank" type="button" data-label="？" data-answer="50日以内" aria-label="第1問の解答を表示">？</button>に発しなければならない。</p>
+    </article>
+
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">2</span>確認問題</h2>
+      <p class="question-text">振替社債等財産の区分は<button class="answer-blank" type="button" data-label="？" data-answer="第三債務者等のある無体財産権等" aria-label="第2問の解答を表示">？</button>である。</p>
+    </article>
+
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">3</span>確認問題</h2>
+      <p class="question-text">差押の効力は、差押えた財産から生ずる法定果実に<button class="answer-blank" type="button" data-label="？" data-answer="及ばない" aria-label="第3問の解答を表示">？</button>。</p>
+    </article>
+
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">4</span>確認問題</h2>
+      <p class="question-text">所得税の第2期分の法定納期限等は<button class="answer-blank" type="button" data-label="？" data-answer="7月31日" aria-label="第4問の解答を表示">？</button>である。</p>
+    </article>
+
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">5</span>確認問題</h2>
+      <p class="question-text">換価の猶予の期間中は時効が<button class="answer-blank" type="button" data-label="？" data-answer="進行しない" aria-label="第5問の解答を表示">？</button>。</p>
+    </article>
+
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">6</span>確認問題</h2>
+      <p class="question-text">公売に際して入札者等ないないときには改めて<button class="answer-blank" type="button" data-label="？" data-answer="再公売" aria-label="第6問の解答を表示">？</button>が行われることがある。</p>
+    </article>
+
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">7</span>確認問題</h2>
+      <p class="question-text">差押は督促状を<button class="answer-blank" type="button" data-label="？" data-answer="発した日から起算して" aria-label="第7問の解答を表示">？</button>10日を起算した日に行わなければならない。</p>
+    </article>
+
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">8</span>確認問題</h2>
+      <p class="question-text">債権現在額申立書は<button class="answer-blank" type="button" data-label="？" data-answer="売却決定の日の前日" aria-label="第8問の解答を表示">？</button>までに税務署長に提出しなければならない。</p>
+    </article>
+
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">9</span>確認問題</h2>
+      <p class="question-text">交付要求は滞納者に<button class="answer-blank" type="button" data-label="？" data-answer="強制換価手続" aria-label="第9問の解答を表示">？</button>が開始されれば行わなければならない。</p>
+    </article>
+
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">10</span>確認問題</h2>
+      <p class="question-text">法人の消費税の申告は課税期間の<button class="answer-blank" type="button" data-label="？" data-answer="末日の翌日から2月" aria-label="第10問の解答を表示">？</button>以内に行わなければならない。</p>
+    </article>
+
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">11</span>確認問題</h2>
+      <p class="question-text">銀行預金に滞納処分による差押えが行われているとき参加差押は<button class="answer-blank" type="button" data-label="？" data-answer="できない" aria-label="第11問の解答を表示">？</button>。</p>
+    </article>
+
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">12</span>確認問題</h2>
+      <p class="question-text">換価の猶予を申請する場合には<button class="answer-blank" type="button" data-label="？" data-answer="納期限" aria-label="第12問前半の解答を表示">？</button>から<button class="answer-blank" type="button" data-label="？" data-answer="6月内" aria-label="第12問後半の解答を表示">？</button>に申請しなければならない。</p>
+    </article>
+
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">13</span>確認問題</h2>
+      <p class="question-text">滞納処分の差押には、時効を<button class="answer-blank" type="button" data-label="？" data-answer="完成猶予" aria-label="第13問の解答を表示">？</button>する効力がある。</p>
+    </article>
+
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">14</span>確認問題</h2>
+      <p class="question-text">保全差押は<button class="answer-blank" type="button" data-label="？" data-answer="法定納期限" aria-label="第14問の解答を表示">？</button>後に逋脱行為に対して行われる保全措置である。</p>
+    </article>
+
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">15</span>確認問題</h2>
+      <p class="question-text">滞納者の同居の親族は捜索の立会人になることが<button class="answer-blank" type="button" data-label="？" data-answer="できる" aria-label="第15問の解答を表示">？</button>。</p>
+    </article>
+
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">16</span>確認問題</h2>
+      <p class="question-text">留置権により担保される権利は、動産に関する特定の前払借賃に<button class="answer-blank" type="button" data-label="？" data-answer="優先" aria-label="第16問の解答を表示">？</button>する。</p>
+    </article>
+  </section>
+
+  <section class="encouragement-card" aria-labelledby="encouragement-title">
+    <h2 id="encouragement-title">最後に、先生からのメッセージ</h2>
+    <p class="encouragement-message">自分は今日の国税徴収法の試験に合格する<strong>自信</strong>がある。</p>
+    <p class="encouragement-note">この気持ちを胸に、最後まで落ち着いて取り組みましょう。</p>
+  </section>
+
+  <a class="footer-link" href="index.html">‹ 科目選択に戻る</a>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <nav aria-label="フッターメニュー">
+        <a href="index.html">TOP</a>
+        <a href="https://www.net-school.co.jp/corporate/" target="_blank" rel="noopener">会社概要</a>
+      </nav>
+      <small>Copyright © Net-School All Rights Reserved.</small>
+    </div>
+  </footer>
+</main>
+
+<script>
+  document.querySelectorAll(".answer-blank").forEach(function(blank) {
+    blank.addEventListener("click", function() {
+      const isShown = blank.classList.toggle("show");
+      blank.textContent = isShown ? blank.dataset.answer : blank.dataset.label;
+      blank.setAttribute("aria-pressed", String(isShown));
+      blank.setAttribute("aria-label", isShown
+        ? blank.dataset.answer + "（解答）"
+        : "タップして解答表示");
+    });
+  });
+</script>
+</body>
+</html>
