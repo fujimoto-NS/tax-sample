@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#893b8b">
+<title>消費税法 3分チェック｜ネットスクール</title>
+<style>
+  :root {
+    --accent: #893b8b;
+    --accent-dark: #632a64;
+    --accent-pale: #f3ebf3;
+    --accent-line: #d0b1d1;
+    --answer: #ff8b00;
+    --answer-pale: #fff6cc;
+    --ink: #1e293b;
+    --muted: #64748b;
+    --surface: #ffffff;
+    --background: #f9f9f9;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.75;
+    margin: 0;
+    padding: 16px 14px 44px;
+    background: var(--background);
+    color: var(--ink);
+  }
+
+  main {
+    width: min(100%, 760px);
+    margin: 0 auto;
+    flex: 1;
+  }
+
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 6px 2px 14px;
+    border-bottom: 1px solid var(--accent-pale);
+  }
+
+  .brand-logo img {
+    display: block;
+    width: min(170px, 44vw);
+    height: auto;
+  }
+
+  .official-link,
+  .back-link,
+  .footer-link {
+    color: var(--accent-dark);
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .official-link {
+    font-size: 12px;
+    text-align: right;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    margin-top: 4px;
+  }
+
+  .hero {
+    padding: 8px 4px 18px;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    margin: 0 0 6px;
+    color: var(--accent);
+    font-size: 30pt;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 1.2;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 30pt;
+    line-height: 1.2;
+  }
+
+  .lead {
+    margin: 10px 0 0;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  .instruction {
+    margin: 0 0 18px;
+    padding: 13px 14px;
+    border-left: 4px solid var(--accent);
+    border-radius: 10px;
+    background: #fff;
+    color: #111;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .question-list {
+    display: grid;
+    gap: 14px;
+  }
+
+  .question-card {
+    padding: 16px 14px 17px;
+    background: var(--surface);
+    border: 1px solid var(--accent-line);
+    border-top: 5px solid var(--accent);
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(137, 59, 139, .10);
+  }
+
+  .question-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 10px;
+    font-size: 17px;
+  }
+
+  .question-number {
+    display: grid;
+    place-items: center;
+    flex: 0 0 32px;
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 14px;
+  }
+
+  .question-text {
+    margin: 0;
+    color: #111;
+    font-size: 16px;
+    line-height: 2;
+  }
+
+  .answer-blank {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 76px;
+    max-width: 100%;
+    min-height: 40px;
+    margin: 0 3px;
+    padding: 4px 10px;
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    background: var(--accent-pale);
+    color: var(--accent-dark);
+    font: inherit;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.35;
+    text-align: center;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .answer-blank.show {
+    border-color: var(--answer);
+    background: var(--answer-pale);
+    color: #c75000;
+  }
+
+  .footer-link {
+    display: block;
+    margin-top: 24px;
+    text-align: center;
+  }
+
+  .site-footer {
+    margin: 32px -14px -44px;
+    padding: 24px 14px 26px;
+    background: #009144;
+    color: #fff;
+    text-align: center;
+  }
+
+  .site-footer-inner {
+    width: min(100%, 760px);
+    margin: 0 auto;
+  }
+
+  .site-footer nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .site-footer a {
+    color: #fff;
+    font-size: 13px;
+    text-decoration: none;
+  }
+
+  .site-footer nav a + a {
+    margin-left: 14px;
+    padding-left: 14px;
+    border-left: 1px solid rgba(255,255,255,.8);
+  }
+
+  .site-footer small {
+    display: block;
+    margin-top: 12px;
+    font-size: 11px;
+  }
+
+  button:focus-visible,
+  a:focus-visible {
+    outline: 3px solid rgba(137, 59, 139, .35);
+    outline-offset: 2px;
+  }
+
+  @media (min-width: 600px) {
+    body {
+      padding: 24px 20px 56px;
+    }
+
+    .question-card {
+      padding: 20px;
+    }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header class="site-header">
+    <a class="brand-logo" href="https://www.net-school.co.jp/" target="_blank" rel="noopener">
+      <img src="https://www.net-school.co.jp/event/zei/kaitou/images/logo.png" alt="ネットスクール">
+    </a>
+    <a class="official-link" href="https://www.net-school.co.jp/" target="_blank" rel="noopener">ネットスクール<br>公式サイト ↗</a>
+  </header>
+
+  <a class="back-link" href="index.html">‹ 科目選択に戻る</a>
+
+  <header class="hero">
+    <p class="eyebrow">消費税法</p>
+    <h1>3分チェック</h1>
+    <p class="lead">消費税法の重要事項を短時間で確認しましょう。</p>
+  </header>
+
+  <p class="instruction">
+    問題　下記の（　　）の中に入る語句を答えなさい。
+  </p>
+
+  <section class="question-list" aria-label="消費税法の問題">
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">1</span>確認問題</h2>
+      <p class="question-text">国内において事業者が行った資産の譲渡等及び特定仕入れには、<button class="answer-blank" type="button" data-label="？" data-answer="消費税" aria-label="第1問の解答を表示" aria-pressed="false">？</button>を課する。</p>
+    </article>
+
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">2</span>確認問題</h2>
+      <p class="question-text">住宅の貸付けは、貸付期間が<button class="answer-blank" type="button" data-label="？" data-answer="1月" aria-label="第2問の解答を表示" aria-pressed="false">？</button>未満の場合を除き非課税となる。</p>
+    </article>
+
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">3</span>確認問題</h2>
+      <p class="question-text">輸出取引等に該当するものについては、消費税を<button class="answer-blank" type="button" data-label="？" data-answer="免除" aria-label="第3問の解答を表示" aria-pressed="false">？</button>する。</p>
+    </article>
+
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">4</span>確認問題</h2>
+      <p class="question-text">特定新規設立法人の要件の一つは、基準期間相当期間の課税売上高が<button class="answer-blank" type="button" data-label="？" data-answer="5億円" aria-label="第4問の解答を表示" aria-pressed="false">？</button>を超える場合である。</p>
+    </article>
+
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">5</span>確認問題</h2>
+      <p class="question-text">高額特定資産とは、税抜価額等が<button class="answer-blank" type="button" data-label="？" data-answer="1,000万円" aria-label="第5問の解答を表示" aria-pressed="false">？</button>以上のものをいう。</p>
+    </article>
+
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">6</span>確認問題</h2>
+      <p class="question-text">特定プラットフォーム事業者は、国税庁長官の<button class="answer-blank" type="button" data-label="？" data-answer="指定" aria-label="第6問の解答を表示" aria-pressed="false">？</button>を受けた者である。</p>
+    </article>
+
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">7</span>確認問題</h2>
+      <p class="question-text">居住用賃貸建物を課税賃貸用に供した場合は、<button class="answer-blank" type="button" data-label="？" data-answer="課税賃貸割合" aria-label="第7問の解答を表示" aria-pressed="false">？</button>を乗じて計算した金額を仕入税額に加算する。</p>
+    </article>
+
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">8</span>確認問題</h2>
+      <p class="question-text">簡易課税制度は、基準期間の課税売上高が<button class="answer-blank" type="button" data-label="？" data-answer="5,000万円" aria-label="第8問の解答を表示" aria-pressed="false">？</button>以下の場合に適用できる。</p>
+    </article>
+
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">9</span>確認問題</h2>
+      <p class="question-text">一般申告の場合、申告書は<button class="answer-blank" type="button" data-label="？" data-answer="税関長" aria-label="第9問の解答を表示" aria-pressed="false">？</button>に提出しなければならない。</p>
+    </article>
+
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">10</span>確認問題</h2>
+      <p class="question-text">適格請求書には、適格請求書発行事業者の氏名又は名称及び<button class="answer-blank" type="button" data-label="？" data-answer="登録番号" aria-label="第10問の解答を表示" aria-pressed="false">？</button>を記載する。</p>
+    </article>
+  </section>
+
+  <a class="footer-link" href="index.html">‹ 科目選択に戻る</a>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <nav aria-label="フッターメニュー">
+        <a href="index.html">TOP</a>
+        <a href="https://www.net-school.co.jp/corporate/" target="_blank" rel="noopener">会社概要</a>
+      </nav>
+      <small>Copyright © Net-School All Rights Reserved.</small>
+    </div>
+  </footer>
+</main>
+
+<script>
+  document.querySelectorAll(".answer-blank").forEach(function(blank) {
+    blank.addEventListener("click", function() {
+      const isShown = blank.classList.toggle("show");
+      blank.textContent = isShown ? blank.dataset.answer : blank.dataset.label;
+      blank.setAttribute("aria-pressed", String(isShown));
+      blank.setAttribute("aria-label", isShown
+        ? blank.dataset.answer + "（解答）"
+        : "タップして解答表示");
+    });
+  });
+</script>
+</body>
+</html>
