@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MG2TVMZ');</script>
+<!-- End Google Tag Manager -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#2f6fcf">
@@ -71,10 +78,6 @@
   .subject-card.is-disabled .subject-number {
     background: var(--subject-pale, var(--blue-pale));
     color: var(--subject-color, var(--blue));
-  }
-
-  .subject-card.is-disabled .subject-detail {
-    color: var(--muted);
   }
 
   .subject-card .subject-arrow {
@@ -218,19 +221,8 @@
 
   .subject-name {
     display: block;
-    font-size: 17px;
+    font-size: 20px;
     font-weight: bold;
-  }
-
-  .subject-detail {
-    display: block;
-    margin-top: 2px;
-    color: var(--muted);
-    font-size: 13px;
-  }
-
-  .is-disabled .subject-detail {
-    color: #94a3b8;
   }
 
   .subject-arrow {
@@ -258,6 +250,10 @@
 </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MG2TVMZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <main>
   <header class="site-header">
     <a class="brand-logo" href="https://www.net-school.co.jp/" target="_blank" rel="noopener">
@@ -280,7 +276,6 @@
         <span class="subject-number">01</span>
         <span class="subject-copy">
           <span class="subject-name">簿記論</span>
-          <span class="subject-detail">電子記録債権｜5問</span>
         </span>
         <span class="subject-arrow" aria-hidden="true">›</span>
       </a>
@@ -289,7 +284,6 @@
         <span class="subject-number">02</span>
         <span class="subject-copy">
           <span class="subject-name">財務諸表論</span>
-          <span class="subject-detail">準備中</span>
         </span>
         <span class="subject-arrow" aria-hidden="true">›</span>
       </div>
@@ -298,7 +292,6 @@
         <span class="subject-number">03</span>
         <span class="subject-copy">
           <span class="subject-name">法人税法</span>
-          <span class="subject-detail">準備中</span>
         </span>
         <span class="subject-arrow" aria-hidden="true">›</span>
       </div>
@@ -307,7 +300,6 @@
         <span class="subject-number">04</span>
         <span class="subject-copy">
           <span class="subject-name">相続税法</span>
-          <span class="subject-detail">全10問</span>
         </span>
         <span class="subject-arrow" aria-hidden="true">›</span>
       </a>
@@ -316,7 +308,6 @@
         <span class="subject-number">05</span>
         <span class="subject-copy">
           <span class="subject-name">消費税法</span>
-          <span class="subject-detail">全10問</span>
         </span>
         <span class="subject-arrow" aria-hidden="true">›</span>
       </a>
@@ -325,7 +316,6 @@
         <span class="subject-number">06</span>
         <span class="subject-copy">
           <span class="subject-name">国税徴収法</span>
-          <span class="subject-detail">全16問＋応援メッセージ</span>
         </span>
         <span class="subject-arrow" aria-hidden="true">›</span>
       </a>
@@ -344,5 +334,26 @@
     </div>
   </footer>
 </main>
+<script>
+  (function() {
+    const redirectSchedule = [
+      { start: Date.UTC(2026, 7, 3, 22, 0), end: Date.UTC(2026, 7, 4, 0, 0), path: "boki.html" },
+      { start: Date.UTC(2026, 7, 4, 5, 0), end: Date.UTC(2026, 7, 4, 6, 30), path: "shohi.html" },
+      { start: Date.UTC(2026, 7, 5, 1, 30), end: Date.UTC(2026, 7, 5, 3, 0), path: "sozoku.html" },
+      { start: Date.UTC(2026, 7, 5, 22, 0), end: Date.UTC(2026, 7, 6, 0, 0), path: "kokuzei.html" }
+    ];
+    const now = Date.now();
+    const activeSlot = redirectSchedule.find(function(slot) {
+      return now >= slot.start && now < slot.end;
+    });
+    if (!activeSlot) {
+      return;
+    }
+    const currentFile = location.pathname.split("/").pop() || "index.html";
+    if (currentFile !== activeSlot.path) {
+      location.replace(activeSlot.path);
+    }
+  })();
+</script>
 </body>
 </html>
