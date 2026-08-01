@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MG2TVMZ');</script>
+<!-- End Google Tag Manager -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#dc6a00">
+<title>法人税法 3分チェック｜ネットスクール</title>
+<style>
+  :root {
+    --accent: #dc6a00;
+    --accent-dark: #944800;
+    --accent-pale: #fbf0e5;
+    --accent-line: #e7bd95;
+    --answer: #ff8b00;
+    --answer-pale: #fff6cc;
+    --ink: #1e293b;
+    --muted: #64748b;
+    --surface: #ffffff;
+    --background: #f9f9f9;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.75;
+    margin: 0;
+    padding: 16px 14px 44px;
+    background: var(--background);
+    color: var(--ink);
+  }
+
+  main {
+    width: min(100%, 760px);
+    margin: 0 auto;
+    flex: 1;
+  }
+
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 6px 2px 14px;
+    border-bottom: 1px solid var(--accent-pale);
+  }
+
+  .brand-logo img {
+    display: block;
+    width: min(170px, 44vw);
+    height: auto;
+  }
+
+  .official-link,
+  .back-link,
+  .footer-link {
+    color: var(--accent-dark);
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .official-link {
+    font-size: 12px;
+    text-align: right;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    margin-top: 4px;
+  }
+
+  .hero {
+    padding: 8px 4px 18px;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    margin: 0 0 6px;
+    color: var(--accent);
+    font-size: 30pt;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 1.2;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 30pt;
+    line-height: 1.2;
+  }
+
+  .lead {
+    margin: 10px 0 0;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  .instruction {
+    margin: 0 0 18px;
+    padding: 13px 14px;
+    border-left: 4px solid var(--accent);
+    border-radius: 10px;
+    background: #fff;
+    color: #111;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .question-list {
+    display: grid;
+    gap: 14px;
+  }
+
+  .question-card {
+    padding: 16px 14px 17px;
+    background: var(--surface);
+    border: 1px solid var(--accent-line);
+    border-top: 5px solid var(--accent);
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(220, 106, 0, .10);
+  }
+
+  .question-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 10px;
+    font-size: 17px;
+  }
+
+  .question-number {
+    display: grid;
+    place-items: center;
+    flex: 0 0 32px;
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 14px;
+  }
+
+  .question-text {
+    margin: 0;
+    color: #111;
+    font-size: 16px;
+    line-height: 2;
+  }
+
+  .question-text + .question-text {
+    margin-top: 12px;
+  }
+
+  .sub-heading {
+    margin: 18px 0 7px;
+    color: #111;
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 1.6;
+  }
+
+  .sub-heading:first-of-type {
+    margin-top: 0;
+  }
+
+  .term-heading {
+    margin: 14px 0 5px;
+    color: #111;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.6;
+  }
+
+  .answer-blank {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 76px;
+    max-width: 100%;
+    min-height: 40px;
+    margin: 0 3px;
+    padding: 4px 10px;
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    background: var(--accent-pale);
+    color: var(--accent-dark);
+    font: inherit;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.35;
+    text-align: center;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .answer-blank.show {
+    border-color: var(--answer);
+    background: var(--answer-pale);
+    color: #c75000;
+  }
+
+  .footer-link {
+    display: block;
+    margin-top: 24px;
+    text-align: center;
+  }
+
+  .site-footer {
+    margin: 32px -14px -44px;
+    padding: 24px 14px 26px;
+    background: #009144;
+    color: #fff;
+    text-align: center;
+  }
+
+  .site-footer-inner {
+    width: min(100%, 760px);
+    margin: 0 auto;
+  }
+
+  .site-footer nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .site-footer a {
+    color: #fff;
+    font-size: 13px;
+    text-decoration: none;
+  }
+
+  .site-footer nav a + a {
+    margin-left: 14px;
+    padding-left: 14px;
+    border-left: 1px solid rgba(255,255,255,.8);
+  }
+
+  .site-footer small {
+    display: block;
+    margin-top: 12px;
+    font-size: 11px;
+  }
+
+  button:focus-visible,
+  a:focus-visible {
+    outline: 3px solid rgba(220, 106, 0, .35);
+    outline-offset: 2px;
+  }
+
+  @media (min-width: 600px) {
+    body {
+      padding: 24px 20px 56px;
+    }
+
+    .question-card {
+      padding: 20px;
+    }
+  }
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MG2TVMZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<main>
+  <header class="site-header">
+    <a class="brand-logo" href="https://www.net-school.co.jp/" target="_blank" rel="noopener">
+      <img src="https://www.net-school.co.jp/event/zei/kaitou/images/logo.png" alt="ネットスクール">
+    </a>
+    <a class="official-link" href="https://www.net-school.co.jp/" target="_blank" rel="noopener">ネットスクール<br>公式サイト ↗</a>
+  </header>
+
+  <a class="back-link" href="index.html">‹ 科目選択に戻る</a>
+
+  <header class="hero">
+    <p class="eyebrow">法人税法</p>
+    <h1>3分チェック</h1>
+    <p class="lead">役員給与の損金不算入を短時間で確認しましょう。</p>
+  </header>
+
+  <p class="instruction">
+    問題　下記の（　　）の中に入る語句を答えなさい。
+  </p>
+
+  <section class="question-list" aria-label="法人税法の問題">
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">1</span>損金不算入</h2>
+      <h3 class="sub-heading">(1) 損金不算入給与（法34①）</h3>
+      <p class="question-text">内国法人がその役員に対して支給する給与（<button class="answer-blank" type="button" data-label="？" data-answer="退職給与で業績連動給与に該当しないもの" aria-label="第1空欄の解答を表示" aria-pressed="false">？</button>、<button class="answer-blank" type="button" data-label="？" data-answer="使用人兼務役員に対する使用人分給与" aria-label="第2空欄の解答を表示" aria-pressed="false">？</button>及び(3)の適用があるものを除く。）のうち次の<button class="answer-blank" type="button" data-label="？" data-answer="いずれにも該当しないもの" aria-label="第3空欄の解答を表示" aria-pressed="false">？</button>の額は、各事業年度の損金の額に算入しない。</p>
+
+      <h4 class="term-heading">① <button class="answer-blank" type="button" data-label="？" data-answer="定期同額給与" aria-label="第4空欄の解答を表示" aria-pressed="false">？</button></h4>
+      <p class="question-text">定期給与（その支給時期が<button class="answer-blank" type="button" data-label="？" data-answer="1月以下" aria-label="第5空欄の解答を表示" aria-pressed="false">？</button>の一定期間ごとである給与をいう。）でその事業年度の各支給時期における<button class="answer-blank" type="button" data-label="？" data-answer="支給額が同額" aria-label="第6空欄の解答を表示" aria-pressed="false">？</button>であるものその他これに準ずるもの</p>
+
+      <h4 class="term-heading">② <button class="answer-blank" type="button" data-label="？" data-answer="事前確定届出給与" aria-label="第7空欄の解答を表示" aria-pressed="false">？</button></h4>
+      <p class="question-text">その役員の職務につき<button class="answer-blank" type="button" data-label="？" data-answer="所定の時期" aria-label="第8空欄の解答を表示" aria-pressed="false">？</button>に、確定額の<button class="answer-blank" type="button" data-label="？" data-answer="金銭" aria-label="第9空欄の解答を表示" aria-pressed="false">？</button>又は確定数の<button class="answer-blank" type="button" data-label="？" data-answer="適格株式等" aria-label="第10空欄の解答を表示" aria-pressed="false">？</button>若しくは確定額の<button class="answer-blank" type="button" data-label="？" data-answer="金銭債権" aria-label="第11空欄の解答を表示" aria-pressed="false">？</button>に係る一定のものを交付する旨の定めに基づいて支給する給与で、<button class="answer-blank" type="button" data-label="？" data-answer="定期同額" aria-label="第12空欄の解答を表示" aria-pressed="false">？</button>給与及び<button class="answer-blank" type="button" data-label="？" data-answer="業績連動" aria-label="第13空欄の解答を表示" aria-pressed="false">？</button>給与のいずれにも該当しないもの（<button class="answer-blank" type="button" data-label="？" data-answer="定期給与" aria-label="第14空欄の解答を表示" aria-pressed="false">？</button>を支給しない役員に対して金銭で支給する給与で<button class="answer-blank" type="button" data-label="？" data-answer="同族会社" aria-label="第15空欄の解答を表示" aria-pressed="false">？</button>に該当しない内国法人が支給するもの以外の給与は、納税地の所轄税務署長に届出をしているものに限る。）</p>
+
+      <h4 class="term-heading">③ <button class="answer-blank" type="button" data-label="？" data-answer="業績連動給与" aria-label="第16空欄の解答を表示" aria-pressed="false">？</button></h4>
+      <p class="question-text">内国法人（<button class="answer-blank" type="button" data-label="？" data-answer="同族会社" aria-label="第17空欄の解答を表示" aria-pressed="false">？</button>にあっては、同族会社以外の法人による完全支配関係があるものに限る。）がその<button class="answer-blank" type="button" data-label="？" data-answer="業務執行役員" aria-label="第18空欄の解答を表示" aria-pressed="false">？</button>に対して支給する業績連動給与で一定のもの</p>
+
+      <h3 class="sub-heading">(2) 過大役員給与（法34②）</h3>
+      <p class="question-text">内国法人がその役員に対して支給する給与（(1)又は(3)の適用があるものを除く。）の額のうち<button class="answer-blank" type="button" data-label="？" data-answer="不相当に高額" aria-label="第19空欄の解答を表示" aria-pressed="false">？</button>な部分の金額は、各事業年度の損金の額に算入しない。</p>
+
+      <h3 class="sub-heading">(3) 隠ぺい又は仮装（法34③）</h3>
+      <p class="question-text">内国法人が事実を<button class="answer-blank" type="button" data-label="？" data-answer="隠ぺいし" aria-label="第20空欄の解答を表示" aria-pressed="false">？</button>、又は<button class="answer-blank" type="button" data-label="？" data-answer="仮装経理" aria-label="第21空欄の解答を表示" aria-pressed="false">？</button>することによりその役員に対して支給する給与の額は、各事業年度の損金の額に算入しない。</p>
+    </article>
+
+    <article class="question-card">
+      <h2 class="question-heading"><span class="question-number">2</span>経済的利益（法34④）</h2>
+      <p class="question-text">給与には、<button class="answer-blank" type="button" data-label="？" data-answer="債務免除益" aria-label="第22空欄の解答を表示" aria-pressed="false">？</button>その他の<button class="answer-blank" type="button" data-label="？" data-answer="経済的な利益" aria-label="第23空欄の解答を表示" aria-pressed="false">？</button>を含むものとする。</p>
+    </article>
+  </section>
+
+  <a class="footer-link" href="index.html">‹ 科目選択に戻る</a>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <nav aria-label="フッターメニュー">
+        <a href="index.html">TOP</a>
+        <a href="https://www.net-school.co.jp/corporate/" target="_blank" rel="noopener">会社概要</a>
+      </nav>
+      <small>Copyright © Net-School All Rights Reserved.</small>
+    </div>
+  </footer>
+</main>
+
+<script>
+  document.querySelectorAll(".answer-blank").forEach(function(blank) {
+    blank.addEventListener("click", function() {
+      const isShown = blank.classList.toggle("show");
+      blank.textContent = isShown ? blank.dataset.answer : blank.dataset.label;
+      blank.setAttribute("aria-pressed", String(isShown));
+      blank.setAttribute("aria-label", isShown
+        ? blank.dataset.answer + "（解答）"
+        : "タップして解答表示");
+    });
+  });
+</script>
+</body>
+</html>
