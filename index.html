@@ -169,9 +169,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     gap: 14px;
     min-height: 78px;
     padding: 14px;
-    border: 1px solid var(--line);
+    border: 1px solid var(--subject-pale, var(--line));
+    border-left: 7px solid var(--subject-color, var(--blue));
     border-radius: 14px;
-    background: #fff;
+    background: linear-gradient(90deg, var(--subject-pale, var(--blue-pale)) 0%, #fff 68%);
     color: inherit;
     text-decoration: none;
     transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
@@ -182,12 +183,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
 
   a.subject-card:focus-visible {
-    outline: 3px solid rgba(47, 111, 207, .35);
+    outline: 3px solid var(--subject-pale, rgba(47, 111, 207, .35));
     outline-offset: 2px;
   }
 
   a.subject-card:hover {
-    border-color: #a9c5f1;
+    border-color: var(--subject-color, #a9c5f1);
     box-shadow: 0 5px 14px rgba(31, 79, 156, .1);
   }
 
@@ -203,8 +204,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     width: 42px;
     height: 42px;
     border-radius: 12px;
-    background: var(--blue-pale);
-    color: var(--blue);
+    background: var(--subject-color, var(--blue));
+    color: #fff;
     font-size: 14px;
     font-weight: bold;
   }
@@ -221,6 +222,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   .subject-name {
     display: block;
+    color: var(--subject-color, var(--ink));
     font-size: 20px;
     font-weight: bold;
   }
